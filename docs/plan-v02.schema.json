@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Plan v0.2",
+  "description": "CAD tracing Plan schema v0.2: multi-loop + scale anchor + rib marks. Machine-readable twin of docs/plan-v02-spec.md section 4-6.",
+  "type": "object",
+  "required": ["version", "units", "image", "scale", "loops", "ribs", "texts_masked"],
+  "properties": {
+    "version": { "const": "0.2" },
+    "units": { "const": "mm" },
+    "image": {
+      "type": "object",
+      "required": ["width_px", "height_px", "source"],
+      "properties": {
+        "width_px": { "type": "integer", "minimum": 1 },
+        "height_px": { "type": "integer", "minimum": 1 },
+        "source": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "scale": {
+      "type": "object",
+      "required": ["px_per_mm", "anchor", "uncertain"],
+      "properties": {
+        "px_per_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "uncertain": { "type": "boolean" },
+        "anchor": {
+          "type": "object",
+          "required": ["type", "real_length_mm", "px_length", "confidence"],
+          "properties": {
+            "type": { "enum": ["dimension", "bar", "manual"] },
+            "ocr_text": { "type": "string" },
+            "real_length_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "px_length": { "type": "number", "exclusiveMinimum": 0 },
+            "bbox_px": {
+              "type": "array", "minItems": 4, "maxItems": 4,
+              "items": { "type": "number" }
+            },
+            "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "loops": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "role", "points", "closed", "area_mm2", "confidence", "source"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["outer", "hole", "notch", "detail"] },
+          "points": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "array", "minItems": 2, "maxItems": 2,
+              "items": { "type": "number" }
+            }
+          },
+          "closed": { "const": true },
+          "area_mm2": { "type": "number", "exclusiveMinimum": 0 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "source": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ribs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "centerline", "width_mm", "extends_mm", "confidence"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "centerline": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "array", "minItems": 2, "maxItems": 2,
+              "items": { "type": "number" }
+            }
+          },
+          "width_mm": { "type": "number", "exclusiveMinimum": 0 },
+          "extends_mm": {
+            "type": "array", "minItems": 2, "maxItems": 2,
+            "items": { "type": "number", "minimum": 0 }
+          },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "texts_masked": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "bbox_px", "used_as_anchor"],
+        "properties": {
+          "text": { "type": "string" },
+          "bbox_px": {
+            "type": "array", "minItems": 4, "maxItems": 4,
+            "items": { "type": "number" }
+          },
+          "used_as_anchor": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "meta": { "type": "object" }
+  },
+  "additionalProperties": false
+}

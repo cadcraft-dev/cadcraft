@@ -1,0 +1,477 @@
+{
+  "generated_at": "2026-09-21T08:56:13.338001+00:00",
+  "env": {
+    "python": "3.12.13",
+    "jev": "not wired into bench (unit-tested separately)"
+  },
+  "gates": {
+    "L1_pass": true,
+    "L1_no_regression": true,
+    "L2_mean_recall_ge_090": true,
+    "L2_min_recall_ge_080": true,
+    "L2_verdicts_pass": true,
+    "neg_control_fails": true,
+    "neg_bbox_trap": true,
+    "reports_conformant": true,
+    "RELEASE": true
+  },
+  "v01_baseline": [
+    {
+      "name": "L1a",
+      "verdict": "PASS",
+      "recall": 1.0
+    },
+    {
+      "name": "L1b",
+      "verdict": "PASS",
+      "recall": 1.0
+    },
+    {
+      "name": "L1c",
+      "verdict": "PASS",
+      "recall": 1.0
+    }
+  ],
+  "cases": [
+    {
+      "name": "L1a",
+      "level": "L1",
+      "expect": "PASS",
+      "verdict": "PASS",
+      "recall": 1.0,
+      "recall_detail": {
+        "recalled": 1,
+        "total": 1
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9938,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [],
+      "scale_error_pct": null,
+      "bbox_iou_advisory": 0.9913,
+      "hard_fails": [],
+      "warnings": [
+        "no key_dimensions: L1 shape-only, scale unchecked"
+      ],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L1a.dxf",
+      "preview": "preview/L1a.png"
+    },
+    {
+      "name": "L1b",
+      "level": "L1",
+      "expect": "PASS",
+      "verdict": "PASS",
+      "recall": 1.0,
+      "recall_detail": {
+        "recalled": 1,
+        "total": 1
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9886,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [],
+      "scale_error_pct": null,
+      "bbox_iou_advisory": 0.9903,
+      "hard_fails": [],
+      "warnings": [
+        "no key_dimensions: L1 shape-only, scale unchecked"
+      ],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 3.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L1b.dxf",
+      "preview": "preview/L1b.png"
+    },
+    {
+      "name": "L1c",
+      "level": "L1",
+      "expect": "PASS",
+      "verdict": "PASS",
+      "recall": 1.0,
+      "recall_detail": {
+        "recalled": 1,
+        "total": 1
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9901,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [],
+      "scale_error_pct": null,
+      "bbox_iou_advisory": 0.9839,
+      "hard_fails": [],
+      "warnings": [
+        "no key_dimensions: L1 shape-only, scale unchecked"
+      ],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L1c.dxf",
+      "preview": "preview/L1c.png"
+    },
+    {
+      "name": "L1a-manual",
+      "level": "L1",
+      "expect": "FAIL(N1)",
+      "verdict": "FAIL",
+      "recall": 0.0,
+      "recall_detail": {
+        "recalled": 0,
+        "total": 1
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.8048,
+          "matched": false,
+          "reasons": [
+            "iou 0.805 < 0.90"
+          ]
+        }
+      ],
+      "ribs": [],
+      "scale_error_pct": null,
+      "bbox_iou_advisory": 0.8059,
+      "hard_fails": [],
+      "warnings": [
+        "manual_anchor: scale unverifiable, L1 shape-only",
+        "no key_dimensions: L1 shape-only, scale unchecked"
+      ],
+      "reasons": [
+        "recall 0.00 < 0.80 (0/1 entities, §8.2)"
+      ],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 3.78,
+        "anchor_type": "manual",
+        "uncertain": true
+      },
+      "dxf": "dxf/L1a-manual.dxf",
+      "preview": "preview/L1a-manual.png"
+    },
+    {
+      "name": "L2a",
+      "level": "L2",
+      "expect": "PASS",
+      "verdict": "PASS",
+      "recall": 1.0,
+      "recall_detail": {
+        "recalled": 3,
+        "total": 3
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9932,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_0",
+          "gt_id": "hole_0",
+          "plan_id": "hole_0",
+          "role": "hole",
+          "iou": 0.9833,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [
+        {
+          "gt_id": "rib_0",
+          "plan_id": "rib_0",
+          "recalled": true,
+          "endpoint_err_mm": 0.125,
+          "width_err_pct": 0.83,
+          "reasons": []
+        }
+      ],
+      "scale_error_pct": 0.83,
+      "bbox_iou_advisory": 0.9944,
+      "hard_fails": [],
+      "warnings": [],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L2a.dxf",
+      "preview": "preview/L2a.png"
+    },
+    {
+      "name": "L2b",
+      "level": "L2",
+      "expect": "PASS",
+      "verdict": "PASS",
+      "recall": 1.0,
+      "recall_detail": {
+        "recalled": 4,
+        "total": 4
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9958,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_0",
+          "gt_id": "hole_0",
+          "plan_id": "hole_0",
+          "role": "hole",
+          "iou": 0.9792,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_1",
+          "gt_id": "hole_1",
+          "plan_id": "hole_1",
+          "role": "hole",
+          "iou": 0.9688,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [
+        {
+          "gt_id": "rib_0",
+          "plan_id": "rib_0",
+          "recalled": true,
+          "endpoint_err_mm": 0.125,
+          "width_err_pct": 0.84,
+          "reasons": []
+        }
+      ],
+      "scale_error_pct": 1.55,
+      "bbox_iou_advisory": 0.9934,
+      "hard_fails": [],
+      "warnings": [],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L2b.dxf",
+      "preview": "preview/L2b.png"
+    },
+    {
+      "name": "L3a",
+      "level": "L3",
+      "expect": "PASS(ref)",
+      "verdict": "PASS",
+      "recall": 0.8333,
+      "recall_detail": {
+        "recalled": 5,
+        "total": 6
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.9964,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_0",
+          "gt_id": "hole_0",
+          "plan_id": "hole_0",
+          "role": "hole",
+          "iou": 0.9792,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_1",
+          "gt_id": "hole_1",
+          "plan_id": "hole_1",
+          "role": "hole",
+          "iou": 0.975,
+          "matched": true,
+          "reasons": []
+        },
+        {
+          "id": "hole_2",
+          "gt_id": "hole_2",
+          "plan_id": "hole_2",
+          "role": "hole",
+          "iou": 0.9688,
+          "matched": true,
+          "reasons": []
+        }
+      ],
+      "ribs": [
+        {
+          "gt_id": "rib_0",
+          "plan_id": "rib_1",
+          "recalled": false,
+          "endpoint_err_mm": 1.008,
+          "width_err_pct": 0.86,
+          "reasons": [
+            "endpoint error 1.01mm > 1.0mm"
+          ]
+        },
+        {
+          "gt_id": "rib_1",
+          "plan_id": "rib_0",
+          "recalled": true,
+          "endpoint_err_mm": 0.28,
+          "width_err_pct": 0.84,
+          "reasons": []
+        }
+      ],
+      "scale_error_pct": 1.55,
+      "bbox_iou_advisory": 0.9944,
+      "hard_fails": [],
+      "warnings": [],
+      "reasons": [],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L3a.dxf",
+      "preview": "preview/L3a.png"
+    },
+    {
+      "name": "L2-neg",
+      "level": "L2",
+      "expect": "FAIL",
+      "verdict": "FAIL",
+      "recall": 0.0,
+      "recall_detail": {
+        "recalled": 0,
+        "total": 3
+      },
+      "per_loop": [
+        {
+          "id": "outer_0",
+          "gt_id": "outer_0",
+          "plan_id": "outer_0",
+          "role": "outer",
+          "iou": 0.5238,
+          "matched": false,
+          "reasons": [
+            "iou 0.524 < 0.90"
+          ]
+        },
+        {
+          "id": "hole_0",
+          "gt_id": "hole_0",
+          "plan_id": null,
+          "role": "hole",
+          "iou": 0.0,
+          "matched": false,
+          "reasons": [
+            "unmatched"
+          ]
+        }
+      ],
+      "ribs": [
+        {
+          "gt_id": "rib_0",
+          "plan_id": null,
+          "recalled": false,
+          "endpoint_err_mm": null,
+          "width_err_pct": null,
+          "reasons": [
+            "unmatched"
+          ]
+        }
+      ],
+      "scale_error_pct": 0.0,
+      "bbox_iou_advisory": 1.0,
+      "hard_fails": [
+        "single_outer_spoof: GT has 2 loops + 1 ribs but plan has a single outer (§8.3.1)",
+        "ribs_empty: GT has 1 rib(s) but plan has none (§8.3.2)",
+        "scale_gate: key dimension unverifiable (§7.3)"
+      ],
+      "warnings": [],
+      "reasons": [
+        "single_outer_spoof: GT has 2 loops + 1 ribs but plan has a single outer (§8.3.1)",
+        "ribs_empty: GT has 1 rib(s) but plan has none (§8.3.2)",
+        "scale_gate: key dimension unverifiable (§7.3)",
+        "scale_unverifiable: key k_hole references unmatched GT loop",
+        "recall 0.00 < 0.80 (0/3 entities, §8.2)"
+      ],
+      "report_conformant": true,
+      "conformance_problems": [],
+      "scale": {
+        "px_per_mm": 4.0,
+        "anchor_type": "dimension",
+        "uncertain": false
+      },
+      "dxf": "dxf/L2-neg.dxf",
+      "preview": "preview/L2-neg.png"
+    }
+  ],
+  "known_gaps": [
+    "N1: manual/uncertain L1 在绝对 mm-IoU 下失败（L1a-manual IoU 0.805）。形状正确（w/h 比 2.4995 vs 2.5），只错 fallback S=3.78。spec §5 称 L1 只看归一化形状，verifier 尚无归一化分支——verifier 后续任务。",
+    "N2: key_dimensions 边索引依赖 GT/plan 点序对应（同一物理边对齐）。方孔键天然稳定；外轮廓长边键已对齐并文档化，tracer 改点序会显式 FAIL。",
+    "N3: verifier.infer_level 只分 L1/L2；L3a 沿用 L2 门限（IoU0.90/rib/2%）记 PASS(ref)，非冻结门限。L3rib_0 端点误差 1.008mm 距门限 1.0mm 仅差 0.008mm。",
+    "N4: bench rib 须为背景孤立细条（宽≤8px）；嵌入零件内部的黑筋条与填充融合不可见（L2a 初版 10px 条亦超 rib 滤波上限，见 tests）。"
+  ]
+}
