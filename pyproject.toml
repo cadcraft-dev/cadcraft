@@ -1,0 +1,29 @@
+[project]
+name = "cadcraft"
+version = "0.1.0"
+description = "Local-first small-model CAD commander: Plan-Then-Construct + Verify (DXF first)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+  "ezdxf>=1.3",
+  "requests>=2.31",
+  "pillow>=10.0",
+  "numpy>=1.26",
+  "opencv-python>=4.8; sys_platform != 'darwin' or platform_machine != 'arm64'",
+  "pytesseract>=0.3.10; sys_platform != 'win32'",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+freecad = ["cadquery>=2.4"]
+ocr = ["paddleocr>=2.7"]
+
+[project.scripts]
+cadcraft = "cadcraft.__main__:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

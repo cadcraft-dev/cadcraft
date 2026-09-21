@@ -1,0 +1,8 @@
+[package]
+name = "cadcraft-geom"
+version = "0.1.0"
+edition = "2021"
+description = "CadCraft geometry core: tolerance/bbox, WASM-ready"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
