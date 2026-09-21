@@ -16,5 +16,7 @@ node_modules/
 .DS_Store
 report.json
 *.png
+!tests/testdata/*.png
+!bench/out/preview/*.png
 tests/tmp/
 .pytest_cache/
